@@ -14,16 +14,22 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
-    const ROLE_ADMIN = 0;
-    const ROLE_READER = 1;
+    const ROLE_READER = 0;
+    const ROLE_ADMIN = 1;
 
     public static function getRoles()
     {
         return [
-            self::ROLE_ADMIN => 'Admin',
             self::ROLE_READER => 'Reader',
+            self::ROLE_ADMIN => 'Admin',
         ];
     }
+
+    /**
+     * @var mixed|string
+     */
+    public $emailConfirmed;
+
 
     /**
      * The attributes that are mass assignable.

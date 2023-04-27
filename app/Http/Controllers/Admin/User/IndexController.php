@@ -11,7 +11,6 @@ class  IndexController extends Controller
     {
         $users = User::all();
         $roles = User::getRoles();
-        //dd($users);
         return view('admin.user.index', compact('users', 'roles'));
     }
 }

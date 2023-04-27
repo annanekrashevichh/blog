@@ -8,11 +8,16 @@
             <div class="row mb-2">
 
                 <div class="col-sm-6">
+                    <h1 class="mb-4">User addition</h1>
+                </div>
+                <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard v1</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.user.index') }}">Users</a></li>
+                        <li class="breadcrumb-item active">User addition</li>
                     </ol>
                 </div><!-- /.col -->
+
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
@@ -23,11 +28,6 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-
-                <div class="col-12">
-                    <h1 class="mb-4">User addition</h1>
-
-                </div>
 
                 <div class="col-sm-6 col-md-4">
                     <form action="{{ route('admin.user.store') }}" method="POST">
@@ -51,15 +51,17 @@
                         </div>
 
 
-                        <div class="form-group col-sm-6 col-md-4">
-                            <label>Select role</label>
-                            <select name="role" class="form-control">
-                                @foreach($roles as $id => $role)
-                                    <option value="{{ $id }}"
-                                        {{ $id == old('role_id') ? ' selected' : '' }}
-                                    >{{ $role }}</option>
-                                @endforeach
-                            </select>
+                        <div class="form-group row">
+                            <div class="col-xl-6">
+                                <label>Select role</label>
+                                <select name="role" class="form-control">
+                                    @foreach($roles as $id => $role)
+                                        <option value="{{ $id }}"
+                                            {{ $id == old('role_id') ? ' selected' : '' }}
+                                        >{{ $role }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
 
                         <div class="form-group">

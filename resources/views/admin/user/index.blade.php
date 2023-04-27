@@ -46,9 +46,8 @@
                                     <td>{{ $user->name }}</td>
                                     <td>
                                         @foreach($roles as $id => $role)
-                                            @dd($id)
-                                            @if($id === $user->role)
-                                                {{-- $role --}}
+                                            @if($id == $user->role)
+                                                {{ $role }}
                                             @endif
                                         @endforeach
                                     </td>
