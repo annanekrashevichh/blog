@@ -1,0 +1,12 @@
+.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.posts-pagination nav {
+    display: flex;
+}
+
+.posts-pagination nav ul {
+    margin: auto;
+}

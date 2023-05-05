@@ -13,89 +13,78 @@
     </div>
     <!--// end row -->
 
-    <div class="row margin-b-50">
-        <!-- Our Exceptional Solutions -->
-        <div class="col-sm-4 sm-margin-b-50">
-            <div class="margin-b-20">
-                <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
-                    <img class="img-responsive" src="{{ asset('assets/img/970x647/01.jpg') }}" alt="Our Exceptional Solutions Image">
-                </div>
-            </div>
-            <h3><a href="#">Triangle Roof</a> <span class="text-uppercase margin-l-20">Management</span></h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incdidunt ut laboret dolor magna ut consequat siad esqudiat dolor</p>
-            <a class="link" href="#">Read More</a>
-        </div>
-        <!-- End Our Exceptional Solutions -->
+    <div class="row row-flex">
 
+        @foreach($posts as $post)
         <!-- Our Exceptional Solutions -->
-        <div class="col-sm-4 sm-margin-b-50">
+        <div class="col-sm-4 margin-b-50">
             <div class="margin-b-20">
                 <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
-                    <img class="img-responsive" src="{{ asset('assets/img/970x647/02.jpg') }}" alt="Our Exceptional Solutions Image">
+                    <img class="img-responsive w-100" src="{{ 'storage/' . $post->preview_image }}" alt="Our Exceptional Solutions Image">
                 </div>
             </div>
-            <h4><a href="#">Curved Corners</a> <span class="text-uppercase margin-l-20">Developmeny</span></h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incdidunt ut laboret dolor magna ut consequat siad esqudiat dolor</p>
-            <a class="link" href="#">Read More</a>
-        </div>
-        <!-- End Our Exceptional Solutions -->
+            <h3><a href="">{{ $post->title }}</a><span class="text-uppercase margin-l-20">{{ $post->category->title }}</span></h3>
 
-        <!-- Our Exceptional Solutions -->
-        <div class="col-sm-4 sm-margin-b-50">
-            <div class="margin-b-20">
-                <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
-                    <img class="img-responsive" src="{{ asset('assets/img/970x647/03.jpg') }}" alt="Our Exceptional Solutions Image">
-                </div>
-            </div>
-            <h4><a href="#">Bird On Green</a> <span class="text-uppercase margin-l-20">Design</span></h4>
             <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incdidunt ut laboret dolor magna ut consequat siad esqudiat dolor</p>
             <a class="link" href="#">Read More</a>
         </div>
         <!-- End Our Exceptional Solutions -->
+        @endforeach
+
+    </div>
+
+    <div class="posts-pagination margin-b-100">
+        {{ $posts->links() }}
     </div>
     <!--// end row -->
 
-    <div class="row">
-        <!-- Our Exceptional Solutions -->
-        <div class="col-sm-4 sm-margin-b-50">
-            <div class="margin-b-20">
-                <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
-                    <img class="img-responsive" src="{{ asset('assets/img/970x647/01.jpg') }}" alt="Our Exceptional Solutions Image">
-                </div>
-            </div>
-            <h4><a href="#">Triangle Roof</a> <span class="text-uppercase margin-l-20">Management</span></h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incdidunt ut laboret dolor magna ut consequat siad esqudiat dolor</p>
-            <a class="link" href="#">Read More</a>
-        </div>
-        <!-- End Our Exceptional Solutions -->
+    <section class="margin-b-50">
+        <h2>Random posts</h2>
 
-        <!-- Our Exceptional Solutions -->
-        <div class="col-sm-4 sm-margin-b-50">
-            <div class="margin-b-20">
-                <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
-                    <img class="img-responsive" src="{{ asset('assets/img/970x647/02.jpg') }}" alt="Our Exceptional Solutions Image">
-                </div>
-            </div>
-            <h4><a href="#">Curved Corners</a> <span class="text-uppercase margin-l-20">Developmeny</span></h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incdidunt ut laboret dolor magna ut consequat siad esqudiat dolor</p>
-            <a class="link" href="#">Read More</a>
-        </div>
-        <!-- End Our Exceptional Solutions -->
+        <div class="row row-flex margin-b-50 row-flex">
+            @foreach($randomPosts as $post)
+                <!-- Our Exceptional Solutions -->
+                <div class="col-sm-3 margin-b-50">
+                    <div class="margin-b-20">
+                        <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".1s">
+                            <img class="img-responsive w-100" src="{{ 'storage/' . $post->preview_image }}" alt="Our Exceptional Solutions Image">
+                        </div>
+                    </div>
+                    <h3><a href="">{{ $post->title }}</a></h3>
+                    <p><span class="text-uppercase margin-l-20">{{ $post->category->title }}</span></p>
+                    <p><a class="link" href="#">Read More</a></p>
 
-        <!-- Our Exceptional Solutions -->
-        <div class="col-sm-4 sm-margin-b-50">
-            <div class="margin-b-20">
-                <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
-                    <img class="img-responsive" src="{{ asset('assets/img/970x647/03.jpg') }}" alt="Our Exceptional Solutions Image">
                 </div>
-            </div>
-            <h4><a href="#">Bird On Green</a> <span class="text-uppercase margin-l-20">Design</span></h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incdidunt ut laboret dolor magna ut consequat siad esqudiat dolor</p>
-            <a class="link" href="#">Read More</a>
+                <!-- End Our Exceptional Solutions -->
+            @endforeach
         </div>
-        <!-- End Our Exceptional Solutions -->
+    </section>
+
+    <section class="margin-b-50">
+            <h2>Popular posts</h2>
+
+            <div class="row row-flex margin-b-50 row-flex">
+                @foreach($likedPosts as $post)
+                    <!-- Our Exceptional Solutions -->
+                    <div class="col-sm-3 margin-b-50">
+                        <div class="margin-b-20">
+                            <div class="wow fadeInRight" data-wow-duration=".3" data-wow-delay=".1s">
+                                <img class="img-responsive w-100" src="{{ 'storage/' . $post->preview_image }}" alt="Our Exceptional Solutions Image">
+                            </div>
+                        </div>
+                        <h3><a href="">{{ $post->title }}</a></h3>
+                        <p><span class="text-uppercase margin-l-20">{{ $post->category->title }}</span></p>
+                        <p><a class="link" href="#">Read More</a></p>
+
+                    </div>
+                    <!-- End Our Exceptional Solutions -->
+                @endforeach
+            </div>
+    </section>
     </div>
     <!--// end row -->
+
+
 </div>
 <!-- End Our Exceptional Solutions -->
 

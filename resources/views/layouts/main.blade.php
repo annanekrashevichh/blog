@@ -32,6 +32,8 @@
     <!-- THEME STYLES -->
     <link href="{{ asset('assets/css/layout.min.css') }}" rel="stylesheet" type="text/css"/>
 
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css"/>
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico"/>
 </head>
@@ -54,7 +56,7 @@
 
                 <!-- Logo -->
                 <div class="logo">
-                    <a class="logo-wrap" href="index.html">
+                    <a class="logo-wrap" href="{{ route('main.index') }}">
                         <img class="logo-img logo-img-main" src="{{ asset('assets/img/logo.png') }}" alt="Asentus Logo">
                         <img class="logo-img logo-img-active" src="{{ asset('assets/img/logo-dark.png') }}" alt="Asentus Logo">
                     </a>
